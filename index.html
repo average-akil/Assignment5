@@ -33,7 +33,6 @@
                 />
               </svg>
             </div>
-           
           </div>
           <a class="btn">Blog</a>
         </div>
@@ -86,11 +85,12 @@
           <fieldset class="fieldset flex flex-col gap-5 pt-8">
             <input
               type="positive-number"
+              id="input-donation"
               class="input border border-black"
               placeholder="Write Donation Amount"
             />
 
-            <button class="btn btn-neutral mt-4">Donate</button>
+            <button id="btn-donation" class="btn btn-neutral mt-4">Donate</button>
           </fieldset>
         </div>
       </div>
@@ -153,7 +153,15 @@
             Aid for Injured in the Quota Movement
           </h1>
           <p class="max-w-[500px]">
-           The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.
+            The recent Quota movement has resulted in numerous injuries and
+            significant hardship for many individuals. Your support is crucial
+            in providing medical assistance, rehabilitation, and necessary
+            supplies to those affected. By contributing, you help ensure that
+            injured individuals receive the care and support they need during
+            this challenging time. Every donation plays a vital role in
+            alleviating their suffering and aiding in their recovery. Please
+            consider making a donation to support these brave individuals in
+            their time of need.
           </p>
           <!-- fund input -->
           <fieldset class="fieldset flex flex-col gap-5 pt-8">
@@ -163,10 +171,27 @@
               placeholder="Write Donation Amount"
             />
 
-            <button class="btn btn-neutral mt-4">Donate</button>
+            <button  class="btn btn-neutral mt-4">Donate</button>
           </fieldset>
         </div>
       </div>
     </main>
+
+    <!-- popup card -->
+    <div class="hidden card card-border bg-base-100 w-96 flex justify-center">
+      <div class="card-body flex flex-col items-center gap-4">
+        <h2 class="card-title text-center">Congrats!</h2>
+        <img class="max-h-10 max-w-8" src="assets/coin.png" alt="" />
+        <p>You have Donated For Mankind</p>
+        <p class="text-2xl font-bold">Successfully</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary bg-slate-600">
+            Close Confirmation
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/addDonation.js"></script>
+    <script src="js/utilities.js"></script>
   </body>
 </html>
