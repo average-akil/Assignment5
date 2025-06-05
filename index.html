@@ -9,9 +9,24 @@
       rel="stylesheet"
       type="text/css"
     />
+    <style>
+      /* Add this CSS to center the popup */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="max-w-[2400px] flex justify-center flex-col">
     <header class="sticky top-0">
       <!-- navbar -->
       <div class="navbar bg-base-100 pb-12 bg-zinc-50">
@@ -44,17 +59,28 @@
         </div>
         <div class="navbar-end">
           <img src="assets/coin.png" alt="" />
-          <a class="btn btn-ghost text-xl"><p id="main-balance">50000</p> BDT</a>
+          <a class="btn btn-ghost text-xl"
+            ><p id="main-balance">50000</p>
+            BDT</a
+          >
         </div>
       </div>
       <!-- navbar ends -->
       <!-- buttons -->
       <div class="flex justify-center gap-5 bg-white p-5">
-        <button class="btn btn-xl">Donation</button>
-        <button class="btn btn-xl">History</button>
+        <button
+          
+          id="show-donation-field"
+          class="btn btn-xl"
+        >
+          Donation
+        </button>
+        <button id="show-transaction-history" class="btn btn-xl">
+          History
+        </button>
       </div>
     </header>
-    <main class="flex justify-center flex-col gap-12">
+    <main id="payment-section" class="flex justify-center flex-col gap-12">
       <!-- hero section 1 -->
 
       <div class="flex justify-center gap-5">
@@ -90,7 +116,9 @@
               placeholder="Write Donation Amount"
             />
 
-            <button id="btn-donation" class="btn btn-neutral mt-4">Donate</button>
+            <button id="btn-donation" class="btn btn-neutral mt-4">
+              Donate
+            </button>
           </fieldset>
         </div>
       </div>
@@ -103,10 +131,10 @@
         </div>
         <div class="">
           <div
-            class="flex gap-1 bg-slate-300 max-w-[100px] border rounded-md p-1"
+            class="flex gap-1 bg-slate-300 max-w-[150px] border rounded-md p-1"
           >
             <img src="assets/coin.png" alt="" />
-            <p>500</p>
+            <p id="2nd-donation-amount">500</p>
             <p>BDT</p>
           </div>
           <h1 class="text-black font-bold text-2xl">
@@ -126,11 +154,14 @@
           <fieldset class="fieldset flex flex-col gap-5 pt-8">
             <input
               type="positive-number"
+              id="input-donation-2"
               class="input border border-black"
               placeholder="Write Donation Amount"
             />
 
-            <button class="btn btn-neutral mt-4">Donate</button>
+            <button id="btn-donation2" class="btn btn-neutral mt-4">
+              Donate
+            </button>
           </fieldset>
         </div>
       </div>
@@ -143,10 +174,10 @@
         </div>
         <div class="">
           <div
-            class="flex gap-1 bg-slate-300 max-w-[100px] border rounded-md p-1"
+            class="flex gap-1 bg-slate-300 max-w-[150px] border rounded-md p-1"
           >
             <img src="assets/coin.png" alt="" />
-            <p>500</p>
+            <p id="3rd-donation-amount">500</p>
             <p>BDT</p>
           </div>
           <h1 class="text-black font-bold text-2xl">
@@ -167,31 +198,43 @@
           <fieldset class="fieldset flex flex-col gap-5 pt-8">
             <input
               type="positive-number"
+              id="input-donation-3"
               class="input border border-black"
               placeholder="Write Donation Amount"
             />
 
-            <button  class="btn btn-neutral mt-4">Donate</button>
+            <button id="btn-donation-3" class="btn btn-neutral mt-4">
+              Donate
+            </button>
           </fieldset>
         </div>
       </div>
     </main>
+    <footer>
+      <div
+        id="transaction-section"
+        class="hidden flex justify-center flex-col gap-12 border rounded-sm p-5"
+      ></div>
+    </footer>
 
     <!-- popup card -->
-    <div class="hidden card card-border bg-base-100 w-96 flex justify-center">
-      <div class="card-body flex flex-col items-center gap-4">
-        <h2 class="card-title text-center">Congrats!</h2>
-        <img class="max-h-10 max-w-8" src="assets/coin.png" alt="" />
-        <p>You have Donated For Mankind</p>
-        <p class="text-2xl font-bold">Successfully</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary bg-slate-600">
-            Close Confirmation
-          </button>
+    <div id="popup" class="hidden popup-overlay">
+      <div class="card bg-base-100 w-96">
+        <div class="card-body flex flex-col items-center gap-4">
+          <h2 class="card-title text-center">Congrats!</h2>
+          <img class="max-h-10 max-w-8" src="assets/coin.png" alt="" />
+          <p>You have Donated For Mankind</p>
+          <p class="text-2xl font-bold">Successfully</p>
+          <div class="card-actions justify-end">
+            <button id="close-popup" class="btn btn-primary bg-slate-600">
+              Close Confirmation
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <script src="js/addDonation.js"></script>
     <script src="js/utilities.js"></script>
+    <script src="js/features.js"></script>
   </body>
 </html>
